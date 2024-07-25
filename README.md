@@ -54,8 +54,33 @@ Then restart the mosquitto service
 
 Now that remote access is active, the broker will also be accessible from other remote devices. 
 
+We can test the configuration using a remote publisher client located on another machine, in this case, a PC, while the subscriber runs from a Raspberry Pi
 ### getting the broker address  
+On the pi:
 1. run ```ifconfig```
 2. get the ip address of the raspberry pi
 3. use this when subscribing to a topic
+
+### Connecting from a remote client
+Using a PC with the Mosquitto MQTT installed, we can run a test publisher using the following command:
+```.\mosquitto_pub.exe -h “IP Address” -t ‘/test/topic’ -m ‘hello world’ ```
+
+Example command, after getting the IP address:
+```
+mosquitto_pub -h 192.168.137.54 -t test/topic -m "hello fromremote"
+```
+
+### Testing on remote client
+I used MQTTX () on a windows machine to run the test.
+Broker IP address: 192.168.137.54
+Topic: /test/topic```
+
+### Results using MQTTx APP
+![pi](./images/pi-publish.png)  
+
+![mqttx](./images/windows-mqttx.png)
+
+As seen, data is received on the remote Windows PC when published from the Raspberry Pi
+
+### Serving HTML
 
