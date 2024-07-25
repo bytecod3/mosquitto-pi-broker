@@ -82,5 +82,8 @@ Topic: /test/topic```
 
 As seen, data is received on the remote Windows PC when published from the Raspberry Pi
 
-### Serving HTML
+## Serving sensor data through HTML 
+To further customize our data presentation, we develop a custom HTML web page .
+
+### Setup
 
